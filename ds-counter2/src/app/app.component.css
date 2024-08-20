@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Uncial+Antiqua:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&display=swap');
+@import url('../assets/customFonts/custom-fonts.css');
+.container {
+    font-family: 'Cinzel', serif;
+    color: #d4af37;
+    font-weight: 700;
+    font-size: 48px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    letter-spacing: 1px;
+}
+.container {
+  background-color:  #00ff00;
+  height: 300px;
+  width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .dark-souls-hud {
+    height: 200px;
+    width: 220px;
+    background-image: url('../assets/images/ds-counter.png');
+    filter: grayscale(100%);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .dark-souls-style {
+      margin-top: 11px;
+      font-family: 'CustomFont';
+      color: #000000;
+      font-weight: 700;
+      font-size: 100px;
+      text-shadow: -5px 2px 19px rgb(255, 255, 255);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      position: absolute;
+      z-index: 2;
+      color: #000000;
+      text-shadow:
+      0 0 7px #fff,
+      0 0 10px #909090,
+      0 0 21px #6c6c6c,
+      0 0 42px #545353,
+      0 0 82px #0a0a0a,
+      0 0 92px #000000,
+      0 0 65px #3f3d3d, 0 0 0px #151515
+    }
+  }
+  .skull {    
+    position: absolute;
+    z-index: 1;
+    width: 110px;
+    opacity: 1;
+    transform: translate(3px, 68px);
+  }
+  .menu{
+    margin-top:20px;
+  }
