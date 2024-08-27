@@ -7,8 +7,7 @@
   } @else if ( style == 'ds3') {
     <div class="dark-souls-3-hud">
       <img class="skull-ds3" src="../assets/images/ds-skull.png">
-    <div class="ds3counterstyle" [ngClass]="{'graduallyAppear': ds3CounterGraduallyAppear}">{{counter}}</div>
-    <div *ngIf="ds3CounterAnimation" class="ds3counterstyle" [ngClass]="{'smokeAway': ds3CounterAnimation}">{{counter}}</div>
+      <div class="ds3counterstyle">{{counter}}</div>
     </div>
   }
 </div>

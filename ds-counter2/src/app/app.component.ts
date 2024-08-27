@@ -16,8 +16,6 @@ export class AppComponent {
   greetingMessage = "";
   counter: number = 13;
   style: string = 'ds3';
-  ds3CounterAnimation = false;
-  ds3CounterGraduallyAppear = false;
   constructor(private cdr: ChangeDetectorRef, private renderer: Renderer2, private el: ElementRef) {}
   greet(event: SubmitEvent, name: string): void {
     event.preventDefault();
@@ -36,21 +34,8 @@ export class AppComponent {
     });
     await this.readTextFile();
   }
-
   addCount() {
-    if (this.style == 'ds3') {
-      this.ds3CounterAnimation = true;
-      this.ds3CounterGraduallyAppear = true;
-      setTimeout(() => {
-        this.counter+=1
-      }, 700);
-      setTimeout(() => {
-        this.ds3CounterAnimation = false;
-        this.ds3CounterGraduallyAppear = false;
-      }, 3000);
-    } else {
-      this.counter+=1
-    }
+    this.counter+=1
     this.cdr.detectChanges();
   }
   susCount() {
@@ -70,8 +55,5 @@ export class AppComponent {
  }
 async saveDeaths() {
    await writeTextFile({ path: 'ds-count.txt', contents: `${this.counter}` }, {dir: BaseDirectory.Desktop});
-  console.log('save deaths');
- }
- smokeAnimation() {
  }
 }
