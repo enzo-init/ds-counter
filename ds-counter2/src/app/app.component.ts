@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, Renderer2, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { invoke } from "@tauri-apps/api/tauri";
@@ -14,12 +14,13 @@ import { BaseDirectory, readTextFile, writeTextFile } from '@tauri-apps/api/fs';
 })
 export class AppComponent {
   greetingMessage = "";
-  counter: number = 0;
-  constructor(private cdr: ChangeDetectorRef) {}
+  counter: number = 13;
+  style: string = 'ds3';
+  ds3CounterAnimation = false;
+  ds3CounterGraduallyAppear = false;
+  constructor(private cdr: ChangeDetectorRef, private renderer: Renderer2, private el: ElementRef) {}
   greet(event: SubmitEvent, name: string): void {
     event.preventDefault();
-
-    // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
     invoke<string>("greet", { name }).then((text) => {
       this.greetingMessage = text;
     });
@@ -33,11 +34,23 @@ export class AppComponent {
       console.log('Shortcut triggered');
       this.susCount();
     });
-    await this.readTextFile();  
+    await this.readTextFile();
   }
 
   addCount() {
-    this.counter+=1
+    if (this.style == 'ds3') {
+      this.ds3CounterAnimation = true;
+      this.ds3CounterGraduallyAppear = true;
+      setTimeout(() => {
+        this.counter+=1
+      }, 700);
+      setTimeout(() => {
+        this.ds3CounterAnimation = false;
+        this.ds3CounterGraduallyAppear = false;
+      }, 3000);
+    } else {
+      this.counter+=1
+    }
     this.cdr.detectChanges();
   }
   susCount() {
@@ -52,10 +65,13 @@ export class AppComponent {
     console.log(error);
   }
  }
- async writeTextFile() {
-}
+ changeCounterStyle(style: string) {
+  this.style = style;
+ }
 async saveDeaths() {
    await writeTextFile({ path: 'ds-count.txt', contents: `${this.counter}` }, {dir: BaseDirectory.Desktop});
   console.log('save deaths');
+ }
+ smokeAnimation() {
  }
 }
