@@ -9,6 +9,11 @@
       <img class="skull-ds3" src="../assets/images/ds-skull.png">
       <div class="ds3counterstyle">{{counter}}</div>
     </div>
+  } @else if (style =='elden-ring') {
+    <div class="elden-ring-hud">
+      <!-- <img class="elden-ring-skull" src="../assets/images/ds-skull.png"> -->
+      <div class="elden-ring-counterstyle">{{counter}}</div>
+    </div>
   }
 </div>
 <div class="menu">
@@ -17,5 +22,6 @@
     <button (click)="saveDeaths()">Guardar</button>
     <button (click)="changeCounterStyle('ds1')">DS1</button>
     <button (click)="changeCounterStyle('ds3')">DS3</button>
+    <button (click)="changeCounterStyle('elden-ring')">Elden Ring</button>
   </div>
 </div>
