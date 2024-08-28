@@ -14,7 +14,7 @@ import { BaseDirectory, readTextFile, writeTextFile } from '@tauri-apps/api/fs';
 })
 export class AppComponent {
   greetingMessage = "";
-  counter: number = 653;
+  counter: number = 0;
   style: string = 'elden-ring';
   constructor(private cdr: ChangeDetectorRef, private renderer: Renderer2, private el: ElementRef) {}
   greet(event: SubmitEvent, name: string): void {
