@@ -66,12 +66,10 @@
       transform: translate(0px, 9px);
       position: absolute;
       z-index: 2;
-      background: url('../assets/images/fire-background.png') no-repeat center center;
-      background-size: cover;
-      text-shadow: 0px 0px 0px rgb(255 0 0 / 8%);
+      text-shadow: -5px 2px 19px rgb(117 18 18);
       -webkit-background-clip: text;
       background-clip: text;
-      -webkit-text-fill-color: #3b02022e;
+      -webkit-text-fill-color: #430303;
     }
   }
   .elden-ring-hud {
